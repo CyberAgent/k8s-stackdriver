@@ -1,0 +1,6 @@
+steps:
+- name: gcr.io/cloud-builders/git
+  args: ['clone', 'https://github.com/CyberAgent/k8s-stackdriver.git']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'asia.gcr.io/$PROJECT_ID/k8s-stackdriver/fluentd-gcp', '.']
+images: 'asia.gcr.io/$PROJECT_ID/k8s-stackdriver/prague/fluentd-gcp'
