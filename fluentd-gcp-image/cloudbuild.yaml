@@ -1,5 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
+  env: 
+    - 'FLUENTD_ARGS=-q' # set log level to "warn"
   args: ['build', '-t', 'asia.gcr.io/$PROJECT_ID/k8s-stackdriver/fluentd-gcp:$SHORT_SHA', './fluentd-gcp-image']
 images:
 - 'asia.gcr.io/$PROJECT_ID/k8s-stackdriver/fluentd-gcp:$SHORT_SHA'
